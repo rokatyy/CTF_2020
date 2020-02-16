@@ -16,6 +16,10 @@
 
 ### Stegano
 #### task1:
+
+[task](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/task1)
+
+
   You have a file - lenivets.jpg which has zip archive in the end of raw data. It could be seen with any hex-editor or any       automated tools like binwalk, scalpel and etc.
 
   ```
