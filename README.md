@@ -17,7 +17,7 @@
 ### Stegano
 #### task1:
 
-[task](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/task1)
+[task](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/Lenivets)
 
 
   You have a file - lenivets.jpg which has zip archive in the end of raw data. It could be seen with any hex-editor or any       automated tools like binwalk, scalpel and etc.
@@ -43,3 +43,12 @@ Archive:  hidden_archive.zip
 ~CTF_2020/Stegano/task1 @ mac(rokatyy): cat secret | base64 -D
 Sup3r_eas4_FL4G111
 ```
+
+
+
+### Reverse
+#### task1:
+
+[Parseltang_magic](https://github.com/rokatyy/CTF_2020/tree/master/Reverse/Parseltang_magic)
+You need to reverse python application and find a flag.
+It's easy to find flag len(it was hardcoded) and then write method which revert changes firstly permutation and implementation then.
