@@ -16,7 +16,6 @@ def permutation(plaintext, secret_int):
     splitted_pt = list(plaintext)
     pt_len = len(plaintext) // secret_int
     for i in range(secret_int):
-        print(i)
         t = splitted_pt[i]
         splitted_pt[i] = splitted_pt[i * (pt_len - 1) + 1]
         splitted_pt[i * (pt_len - 1) + 1] = t
@@ -24,10 +23,11 @@ def permutation(plaintext, secret_int):
 
 
 def encryption(plaintext):
-    return permutation((implementation(plaintext)))
+    return permutation((implementation(plaintext)), len(plaintext))
 
 
 if __name__ == "__main__":
+
     plaintext = input("Enter password: ")
     enc_text = encryption(plaintext)
     if enc_text == expected_result:
