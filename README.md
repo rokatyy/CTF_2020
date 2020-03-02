@@ -52,3 +52,22 @@ Sup3r_eas4_FL4G111
 [Parseltang_magic](https://github.com/rokatyy/CTF_2020/tree/master/Reverse/Parseltang_magic)
 You need to reverse python application and find a flag.
 It's easy to find flag len(it was hardcoded) and then write method which revert changes firstly permutation and implementation then.
+
+#### task2:
+[checker](https://github.com/rokatyy/CTF_2020/tree/master/Reverse/checker)
+
+You can find origin c++ code here: [code](https://github.com/rokatyy/CTF_2020/blob/master/Reverse/checker/easy_checker.cpp).
+There are some ways to solve:
+1. Easy strings:
+  ```
+~/ @ mac(rokatyy): strings checker 
+Enter password:
+Nope.
+lfgar{g1thP_54}5
+You are true hacker!
+flag is: 
+Nooooope.
+  ```
+  
+  The most interesting string for us here is ```lfgar{g1thP_54}5```
+  After some manipulations we can see that ```[2*i]``` elements placed to ```[2*i+1]``` and vice versa.
