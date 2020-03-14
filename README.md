@@ -68,6 +68,11 @@ Sup3r_eas4_FL4G111
 ```
 
 
+#### Satan:
+    The video is all about hiding images in spectrograms, and, as it happens,
+    the flag is hidden in the audio. Extract the audio, analyze the spectrogram,
+    get the F6L6A6G.
+
 
 ### Reverse
 #### task1:
