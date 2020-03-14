@@ -12,30 +12,7 @@
 
 * **Anna Korshikova** - [Github](https://github.com/annkooo)
 
-* **Alexander Krikun** - [Github](https://github.com/krikun98)
-
 ## Writeups
-
-### OSINT
-#### pictures:
-    General help: all "pictures" tasks have an md5 hash 
-    of one capitalized english word for an answer.
-    
-#### pictures_1:
-    Introductory task: image search, see that this is the 
-    National Library of Kazakhstan, and opposite it is
-    Bayterek Monument. Flag is md5(Bayterek) 
-    
-#### pictures_2:
-    A bit harder: image search doesn't do much, so we hope the user 
-    sees the green sign. Under it is faint writing, and googling
-    "Cemetery Campo do Bom" gives the city. Flag is md5(Uberlandia)
-    
-#### pictures_3:
-    More fun: image search flops completely, but reproducing the Chinese
-    characters in Google Translate and googling "的土 taxi" gives 
-    Hong Kong. "Hong Kong park many people" finds "Kowloon Walled City". 
-    Flag is md5(Kowloon)
 
 ### Stegano
 #### task1:

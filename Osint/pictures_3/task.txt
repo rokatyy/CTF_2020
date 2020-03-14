@@ -1,4 +1,0 @@
-A lot of people used to live at this park's location. What is its name?
-
-General help: all "pictures" tasks have an md5 hash
-of one capitalized english word for an answer.

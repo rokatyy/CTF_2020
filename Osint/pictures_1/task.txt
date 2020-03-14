@@ -1,4 +1,0 @@
-What's outside the building?
-
-General help: all "pictures" tasks have an md5 hash
-of one capitalized english word for an answer.
