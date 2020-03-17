@@ -150,8 +150,8 @@ async def print_help(message: types.Message):
 
 @dp.message_handler()
 async def echo(message: types.Message):
-    message_hash = hashlib.md5(message.text.encode('utf-8'))
-    await message.answer(message_hash.hexdigest())
+    await message.answer("Unrecognized command")
+    await print_help()
 
 
 if __name__ == '__main__':
