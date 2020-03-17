@@ -1,0 +1,18 @@
+0  - blaise              - 100 
+1  - cyrilic             - 400 
+2  - easy_peasy          - 100 
+3  - history             - 350 
+4  - imitation_game      - 200 
+5  - corona              - 250 
+6  - pictures_1          - 100 
+7  - pictures_2          - 200 
+8  - pictures_3          - 400 
+9  - checker             - 200 
+10 - crackme             - 100 
+11 - dark_magic          - 500 
+12 - Parseltang_magic    - 300 
+13 - Lenivets            - 250 
+14 - raw                 - 200 
+15 - Satan               - 300 
+16 - tryoshka            - 200 
+

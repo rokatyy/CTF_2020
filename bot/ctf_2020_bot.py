@@ -147,6 +147,7 @@ async def check_flag(message: types.Message):
             if flag == tasks[task_id]['answer']:
                 team.results[task_id] = 1
                 await message.answer("Correct, well done")
+                await pickle_data(message)
             else:
                 await message.answer("Wrong answer")
     else:
@@ -177,7 +178,7 @@ async def pickle_data(message: types.Message):
         pickle.dump(tasks, file)
     with open(pickled_teams_file, 'wb') as file:
         pickle.dump(teams, file)
-    await message.answer("Pickled teams and tasks")
+    print("Pickled teams and tasks")
 
 
 @dp.message_handler()
