@@ -5,6 +5,8 @@ I hope it doesn't die.
 
 import logging
 import hashlib
+import pickle
+import argparse
 import task_list
 from team import Team
 from aiogram import Bot, Dispatcher, executor, types
@@ -13,15 +15,28 @@ API_TOKEN = '991261972:AAHX8Xtq4N6i0vtdTjaVcD3w5CPz5_9CuLg'
 # ROSKOMPOZOR
 PROXY = "socks5://163.172.152.192:1080"
 task_list.populate_tasks()
+teams = []
 tasks = task_list.tasks
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
+# Unpickle data if necessary
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument("--unpickle", help="Unpickle stored data")
+args = parser.parse_args()
+pickled_teams_file = 'teams.pickle'
+pickled_tasks_file = 'tasks.pickle'
+if args.unpickle:
+    with open(pickled_tasks_file, 'rb') as file:
+        tasks = pickle.load(file)
+    with open(pickled_teams_file, 'rb') as file:
+        teams = pickle.load(file)
+
+
 # Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN, proxy=PROXY)
 dp = Dispatcher(bot)
-teams = []
 
 
 @dp.message_handler(commands='start')
@@ -56,7 +71,6 @@ async def team_results(message: types.Message):
         for i in range(len(tasks)):
             result_line = "{:<2}- {:<15}\n".format(team.results[i], tasks[i]['name'])
             result_list += result_line
-            print(result_list)
         await message.answer(result_list)
     else:
         await message.answer("Unknown team (hint: /start)")
@@ -68,6 +82,9 @@ async def list_tasks(message: types.Message):
     for i in range(len(tasks)):
         task_line = "{:<3}- {:<20}- {:<4}\n".format(i, tasks[i]['name'], tasks[i]['value'])
         task_list += task_line
+    file = open('task_ids.txt', 'w')
+    print(task_list, file=file)
+    file.close()
     await message.answer(task_list)
 
 
@@ -85,6 +102,9 @@ async def all_results(message: types.Message):
         results = ''
         for i in range(len(stats)):
             results += "{:<3}- {:<20}- {:<4}\n".format(i+1, stats[i]["name"], stats[i]["result"])
+        file = open('results.txt', 'w')
+        print(results, file=file)
+        file.close()
         await message.answer(results)
     else:
         await message.answer("No teams registered")
@@ -96,11 +116,14 @@ async def all_results_detailed(message: types.Message):
         await message.answer("Format: 'team_name - task_result(by ID)'")
         results = ''
         for team in teams:
-            result_line = "{:<14}- ".format(team.name)
+            result_line = "{:<20}- ".format(team.name)
             for result in team.results:
                 result_line += "{:<2}".format(result)
             result_line += "\n"
             results += result_line
+        file = open('results_detailed.txt', 'w')
+        print(results, file=file)
+        file.close()
         await message.answer(results)
     else:
         await message.answer("No teams registered")
@@ -146,6 +169,15 @@ async def print_help(message: types.Message):
     help.append(command_ref)
     for line in help:
         await message.answer(line)
+
+
+@dp.message_handler(commands='pickle')
+async def pickle_data(message: types.Message):
+    with open(pickled_tasks_file, 'wb') as file:
+        pickle.dump(tasks, file)
+    with open(pickled_teams_file, 'wb') as file:
+        pickle.dump(teams, file)
+    await message.answer("Pickled teams and tasks")
 
 
 @dp.message_handler()
