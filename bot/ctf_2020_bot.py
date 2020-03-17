@@ -41,6 +41,7 @@ async def startup(message: types.Message):
     else:
         teams.append(Team(team_name=team_name, owner_id=team_id))
         await message.answer("New team created")
+        await print_help(message)
         if team_name is not '':
             await message.answer("Team name: %s" % team_name)
         else:
