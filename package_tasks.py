@@ -8,7 +8,7 @@ os.makedirs(task_pack, exist_ok=True)
 
 def package():
     task_groups = ['Crypto', 'Osint', 'Reverse', 'Stegano']
-    reverse_index = re.compile(r"(\.c|\.cpp|\.py)")
+    reverse_index = re.compile(r"(\.c|\.cpp)")
     for task_group in task_groups:
         names = os.listdir('{:}'.format(task_group))
         for name in names:
