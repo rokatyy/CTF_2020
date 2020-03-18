@@ -1,3 +1,5 @@
-Rocket              - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Daria               - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Rocket            - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 Alexander Krikun
+                  - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 canhwls None
+empty             - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 yeet None
+*Anyway*          - 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 Thai Nguyen Quang
 

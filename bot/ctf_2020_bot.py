@@ -39,9 +39,14 @@ bot = Bot(token=API_TOKEN, proxy=PROXY)
 dp = Dispatcher(bot)
 
 
+def str_to_html(string):
+    return "<pre>" + string + "</pre>"
+
+
 @dp.message_handler(commands='start')
 async def startup(message: types.Message):
     team_id = message.from_user.id
+    team_pretty_id = "{:} {:}".format(message.from_user.first_name, message.from_user.last_name)
     message_contents = message.text.split()
     team_name = ''
     if len(message_contents) > 1:
@@ -54,7 +59,7 @@ async def startup(message: types.Message):
             team.name = team_name
             await message.answer("New team name is %s" % team.name)
     else:
-        teams.append(Team(team_name=team_name, owner_id=team_id))
+        teams.append(Team(team_name=team_name, owner_id=team_id, owner_pretty=team_pretty_id))
         await message.answer("New team created")
         await print_help(message)
         if team_name is not '':
@@ -71,7 +76,7 @@ async def team_results(message: types.Message):
         for i in range(len(tasks)):
             result_line = "{:<2}- {:<15}\n".format(team.results[i], tasks[i]['name'])
             result_list += result_line
-        await message.answer(result_list)
+        await message.answer(str_to_html(result_list), parse_mode='HTML')
     else:
         await message.answer("Unknown team (hint: /start)")
 
@@ -85,7 +90,7 @@ async def list_tasks(message: types.Message):
     file = open('task_ids.txt', 'w')
     print(task_list, file=file)
     file.close()
-    await message.answer(task_list)
+    await message.answer(str_to_html(task_list), parse_mode='HTML')
 
 
 @dp.message_handler(commands='stats')
@@ -101,11 +106,11 @@ async def all_results(message: types.Message):
         stats = sorted(stats, key=lambda i: i['result'], reverse=True)
         results = ''
         for i in range(len(stats)):
-            results += "{:<3}- {:<20}- {:<4}\n".format(i+1, stats[i]["name"], stats[i]["result"])
+            results += "{:<3}- {:<18}- {:<4}\n".format(i+1, stats[i]["name"], stats[i]["result"])
         file = open('results.txt', 'w')
         print(results, file=file)
         file.close()
-        await message.answer(results)
+        await message.answer(str_to_html(results), parse_mode='HTML')
     else:
         await message.answer("No teams registered")
 
@@ -116,15 +121,16 @@ async def all_results_detailed(message: types.Message):
         await message.answer("Format: 'team_name - task_result(by ID)'")
         results = ''
         for team in teams:
-            result_line = "{:<20}- ".format(team.name)
+            result_line = "{:<18}- ".format(team.name)
             for result in team.results:
                 result_line += "{:<2}".format(result)
+            result_line += "{:}".format(team.owner_pretty)
             result_line += "\n"
             results += result_line
         file = open('results_detailed.txt', 'w')
         print(results, file=file)
         file.close()
-        await message.answer(results)
+        await message.answer(str_to_html(results), parse_mode='HTML')
     else:
         await message.answer("No teams registered")
 
@@ -184,7 +190,7 @@ async def pickle_data(message: types.Message):
 @dp.message_handler()
 async def echo(message: types.Message):
     await message.answer("Unrecognized command")
-    await print_help()
+    await print_help(message)
 
 
 if __name__ == '__main__':
