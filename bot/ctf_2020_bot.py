@@ -66,7 +66,7 @@ async def team_results(message: types.Message):
 async def list_tasks(message: types.Message):
     task_list = ''
     for i in range(len(tasks)):
-        task_line = "{:<3}- {:<14}\n".format(i, tasks[i]['name'])
+        task_line = "{:<3}- {:<20}- {:<4}\n".format(i, tasks[i]['name'], tasks[i]['value'])
         task_list += task_line
     await message.answer(task_list)
 
@@ -77,11 +77,14 @@ async def all_results(message: types.Message):
         await message.answer("Format: 'place - team_name - result(number of solved tasks)'")
         stats = []
         for team in teams:
-            stats.append({'name': team.name, 'result': sum(team.results)})
+            res = 0
+            for i in range(len(tasks)):
+                res += tasks[i]['value'] * team.results[i]
+            stats.append({'name': team.name, 'result': res})
         stats = sorted(stats, key=lambda i: i['result'], reverse=True)
         results = ''
         for i in range(len(stats)):
-            results += "{:<3}- {:<14}- {:<3}\n".format(i+1, stats[i]["name"], stats[i]["result"])
+            results += "{:<3}- {:<20}- {:<4}\n".format(i+1, stats[i]["name"], stats[i]["result"])
         await message.answer(results)
     else:
         await message.answer("No teams registered")
@@ -147,8 +150,8 @@ async def print_help(message: types.Message):
 
 @dp.message_handler()
 async def echo(message: types.Message):
-    message_hash = hashlib.md5(message.text.encode('utf-8'))
-    await message.answer(message_hash.hexdigest())
+    await message.answer("Unrecognized command")
+    await print_help()
 
 
 if __name__ == '__main__':

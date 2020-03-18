@@ -12,11 +12,13 @@ def populate_tasks():
         for name in names:
             hash_path = '../{:}/{:}/hash.txt'.format(task_group, name)
             secret_path = '../{:}/{:}/secret.txt'.format(task_group, name)
+            value_path = '../{:}/{:}/value.txt'.format(task_group, name)
+            ans_hash = ''
+            value = 100
             if os.path.isfile(hash_path):
                 hash_file = open(hash_path)
                 ans_hash = hash_file.read().rstrip()
                 hash_file.close()
-                tasks.append({'name': name, 'group': task_group, 'answer': ans_hash})
             elif os.path.isfile(secret_path):
                 secret_file = open(secret_path)
                 ans = secret_file.read().rstrip()
@@ -25,9 +27,20 @@ def populate_tasks():
                 hash_file = open(hash_path, "w")
                 print(ans_hash, file=hash_file)
                 hash_file.close()
-                tasks.append({'name': name, 'group': task_group, 'answer': ans_hash})
+            else:
+                print("Task with no answer: {:}".format(name))
+            if os.path.isfile(value_path):
+                value_file = open(value_path)
+                value = int(value_file.read().rstrip())
+                value_file.close()
+            else:
+                value_file = open(value_path, 'w')
+                print(value, file=value_file)
+                value_file.close()
+            tasks.append({'name': name, 'group': task_group, 'answer': ans_hash, 'value': value})
 
 
 
 if __name__ == '__main__':
     populate_tasks()
+    print(tasks)
