@@ -107,7 +107,7 @@ async def list_tasks(message: types.Message):
 @dp.message_handler(commands='stats')
 async def all_results(message: types.Message):
     if len(teams) is not 0 and len(list(filter(lambda team: team.name != '', teams))) is not 0:
-        await message.answer("Format: 'place - team_name - result(number of solved tasks)'")
+        await message.answer("Format: 'place - team_name - result'")
         stats = []
         for team in teams:
             if team.name == '':

@@ -1,2 +1,10 @@
-1  - chmod_777_torchic - 0   
+1  - Jangga            - 0   
+2  - 0x55AA            - 0   
+3  - red_box           - 0   
+4  - itmosociety       - 0   
+5  - Боевые_хомяки     - 0   
+6  - kernel_panic      - 0   
+7  - worstM            - 0   
+8  - SHITCURITY        - 0   
+9  - DeadbyDaylight    - 0   
 

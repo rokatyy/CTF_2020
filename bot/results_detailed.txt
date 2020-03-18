@@ -1,4 +1,8 @@
-Rocket            - n n n n n n n n n n n n n n n F n S Alexander Krikun
-$%^&___`~         - n n n n n n n n n n n n n n n n n n Кирилл Буланов
-                  - n n n n n n n n n n n n n n n n n F canhwls None
+Jangga            - n n n n n n n n n n n n n n n n n Anh Pham
+0x55AA            - n n n n n n n n n n n n n n n n n imba None
+red_box           - n n n n n n n n n n n n n n n n n Manh Chen
+itmosociety       - n n n n n n n n n n n n n n n n n Nikita Chernyak
+Боевые_хомяки     - n n n n n n n n n n n n n n n n n Геннадий Зиганшин
+kernel_panic      - n n n n n n n n n n n n n n n n n canhwls None
+worstM            - n n n n n n n n n n n n n n n n n Stefan Lukyanov
 
