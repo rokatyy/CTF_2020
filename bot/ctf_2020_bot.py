@@ -67,7 +67,7 @@ async def startup(message: types.Message):
             team.name = team_name
             await message.answer("New team name is %s" % team.name)
     else:
-        teams.append(Team(team_name=team_name, owner_id=team_id, owner_pretty=team_pretty_id))
+        teams.append(Team(team_name=team_name, owner_id=team_id, owner_pretty=team_pretty_id, size=len(tasks)))
         await message.answer("New team created")
         await print_help(message)
         if team_name is not '':
@@ -82,7 +82,7 @@ async def team_results(message: types.Message):
     if team is not None:
         result_list = ''
         for i in range(len(tasks)):
-            result_line = "{:<2}- {:<15}\n".format(result_print(team.results[i]), tasks[i].name)
+            result_line = "{:<3}- {:<20}- {:<4}\n".format(i, tasks[i].name, result_print(team.results[i]))
             result_list += result_line
         await message.answer(str_to_html(result_list), parse_mode='HTML')
     else:
@@ -103,14 +103,16 @@ async def list_tasks(message: types.Message):
 
 @dp.message_handler(commands='stats')
 async def all_results(message: types.Message):
-    if len(teams) is not 0:
+    if len(teams) is not 0 and len(list(filter(lambda team: team.name != '', teams))) is not 0:
         await message.answer("Format: 'place - team_name - result(number of solved tasks)'")
         stats = []
         for team in teams:
+            if team.name == '':
+                continue
             res = 0
             for i in range(len(tasks)):
                 res += tasks[i].value * team.results[i]
-            stats.append({'name': team.name, 'result': res})
+            stats.append({'name': team.name, 'result': int(res)})
         stats = sorted(stats, key=lambda i: i['result'], reverse=True)
         results = ''
         for i in range(len(stats)):
@@ -129,10 +131,12 @@ async def all_results_detailed(message: types.Message):
     show_names = 0
     if len(message_contents) == 2 and message_contents[1] == 'names':
         show_names = 1
-    if len(teams) is not 0:
+    if len(teams) is not 0 and len(list(filter(lambda team: team.name != '', teams))) is not 0:
         await message.answer("Format: 'team_name - task_result(by ID)'")
         results = ''
         for team in teams:
+            if team.name == '':
+                continue
             result_line = "{:<18}- ".format(team.name)
             for result in team.results:
                 result_line += "{:<2}".format(result_print(result))

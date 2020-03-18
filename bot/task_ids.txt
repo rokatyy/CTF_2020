@@ -4,9 +4,9 @@
 3  - history             - 350 
 4  - imitation_game      - 200 
 5  - building            - 100 
-6  - cemetery            - 200 
+6  - cemetery            - 250 
 7  - corona              - 250 
-8  - taxi                - 400 
+8  - taxi                - 450 
 9  - checker             - 200 
 10 - crackme             - 100 
 11 - dark_magic          - 500 
