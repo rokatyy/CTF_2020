@@ -207,6 +207,14 @@ async def pickle_data(message: types.Message):
     print("Pickled teams and tasks")
 
 
+@dp.message_handler(commands='update_tasks')
+async def update_tasks(message: types.Message):
+    task_list.populate_tasks()
+    global tasks
+    tasks = task_list.tasks
+    print("Updated task list")
+
+
 @dp.message_handler()
 async def echo(message: types.Message):
     await message.answer("Unrecognized command")

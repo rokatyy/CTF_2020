@@ -16,6 +16,8 @@ class Task:
 
 
 def populate_tasks():
+    global tasks
+    tasks = []
     task_groups = ['Crypto', 'Osint', 'Reverse', 'Stegano']
     for task_group in task_groups:
         names = os.listdir('../{:}'.format(task_group))
