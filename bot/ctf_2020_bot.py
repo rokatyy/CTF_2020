@@ -11,7 +11,7 @@ import task_list
 from team import Team
 from aiogram import Bot, Dispatcher, executor, types
 
-API_TOKEN = '991261972:AAHX8Xtq4N6i0vtdTjaVcD3w5CPz5_9CuLg'
+API_TOKEN = 'ASK_BOTFATHER'
 # ROSKOMPOZOR
 PROXY = "socks5://163.172.152.192:1080"
 task_list.populate_tasks()
