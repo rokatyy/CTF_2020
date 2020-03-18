@@ -1,8 +1,15 @@
-Jangga            - n n n n n n n n n n n n n n n n n Anh Pham
-0x55AA            - n n n n n n n n n n n n n n n n n imba None
-red_box           - n n n n n n n n n n n n n n n n n Manh Chen
-itmosociety       - n n n n n n n n n n n n n n n n n Nikita Chernyak
-Боевые_хомяки     - n n n n n n n n n n n n n n n n n Геннадий Зиганшин
-kernel_panic      - n n n n n n n n n n n n n n n n n canhwls None
-worstM            - n n n n n n n n n n n n n n n n n Stefan Lukyanov
+                    0 1 2 3 4 5 6 7 8 9 10111213141516
+0x55AA            - S n F n n n n S n F S S S S n S n imba None
+DeadbyDaylight    - S n n n n F n S n n n n n n F n n whoisare None
+chmod_777_torchic - n n n n n n n S n n n n n n n n n Egor None
+Боевые_хомяки     - n n S n n n n S n n n S n n n n n Геннадий Зиганшин
+CTF_Team          - S n S n S n S S n n n n n n n n F Alexey Grigoriev
+Команда           - F n S n F S F F S n n n n S n n n Максим Козлов
+kernel_panic      - S n S n S n n F S S S n n F n F n canhwls None
+SHITCURITY        - n n F n n S n S S S F F F F n S n Penguin Grape
+Jangga            - S n S n n S n S S n n n n n n n n Нгуен Чан Минь
+worstM            - n n S n S n n S n n n n n n n n n Stefan Lukyanov
+itmosociety       - n n n n n n n S S S n n S n n n n Nikita Chernyak
+red_box           - n n S n n n n n n n F n n n n n n Manh Chen
+*Турбопушка*      - F n S n F F n S F n n n S n n n n Ksenia None
 

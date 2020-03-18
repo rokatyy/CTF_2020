@@ -136,7 +136,10 @@ async def all_results_detailed(message: types.Message):
         show_names = 1
     if len(teams) is not 0 and len(list(filter(lambda team: team.name != '', teams))) is not 0:
         await message.answer("Format: 'team_name - task_result(by ID)'")
-        results = ''
+        results = '{:<20}'.format(' ')
+        for i in range(len(tasks)):
+            results += "{:<2}".format(i)
+        results += '\n'
         for team in teams:
             if team.name == '':
                 continue

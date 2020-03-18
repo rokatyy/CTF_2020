@@ -1,10 +1,14 @@
-1  - Jangga            - 0   
-2  - 0x55AA            - 0   
-3  - red_box           - 0   
-4  - itmosociety       - 0   
-5  - Боевые_хомяки     - 0   
-6  - kernel_panic      - 0   
-7  - worstM            - 0   
-8  - SHITCURITY        - 0   
-9  - DeadbyDaylight    - 0   
+1  - SHITCURITY        - 2675
+2  - 0x55AA            - 2130
+3  - kernel_panic      - 2030
+4  - Команда           - 1780
+5  - *Турбопушка*      - 1585
+6  - itmosociety       - 1200
+7  - CTF_Team          - 1120
+8  - Jangga            - 1000
+9  - Боевые_хомяки     - 850 
+10 - DeadbyDaylight    - 680 
+11 - worstM            - 550 
+12 - chmod_777_torchic - 250 
+13 - red_box           - 210 
 
