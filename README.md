@@ -74,6 +74,13 @@ Sup3r_eas4_FL4G111
     get the F6L6A6G.
 
 
+### CRYPTO
+#### blaise:
+    Vigenère cipher, key 'classic'.
+    
+#### cyrilic:
+    Select all letters 'a' and find the answer.
+    
 ### Reverse
 #### task1:
 
