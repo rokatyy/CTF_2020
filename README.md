@@ -80,6 +80,12 @@ Sup3r_eas4_FL4G111
     
 #### cyrilic:
     Select all letters 'a' and find the answer.
+
+#### easy_peasy:
+    Caesar cipher. For decode use ROT11.
+    
+#### history:
+    It's Cardan grille with holes in place '1'.
     
 ### Reverse
 #### task1:
