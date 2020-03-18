@@ -164,6 +164,7 @@ async def check_flag(message: types.Message):
 async def print_help(message: types.Message):
     help = []
     help.append("This bot is held together with duct tape and prayers. Please do not break it.")
+    help.append("Bot is liable to lose your flags. Back them up elsewhere.")
     help.append("Command reference:")
     command_ref = ''
     command_ref += '/start *team_name* - create your team or change team name\n'
