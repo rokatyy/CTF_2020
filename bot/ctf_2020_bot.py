@@ -223,6 +223,13 @@ async def update_tasks(message: types.Message):
     print("Updated task list")
 
 
+@dp.message_handler(commands='hint')
+async def hint(message: types.Message):
+    await message.answer("Git gud")
+    await message.answer("Or tag an admin in your team's chat")
+    await message.answer("So they can tell you to git gud")
+
+
 @dp.message_handler()
 async def echo(message: types.Message):
     await message.answer("Unrecognized command")
