@@ -64,8 +64,8 @@ async def startup(message: types.Message):
         if team_name is '':
             await message.answer("Your team name is %s" % team.name)
         elif team_name == 'clear':
-            team.name = ''
-            await message.answer("Team name cleared")
+            teams.remove(team)
+            await message.answer("Team cleared")
         else:
             team.name = team_name
             await message.answer("New team name is %s" % team.name)
