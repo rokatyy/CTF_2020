@@ -63,6 +63,9 @@ async def startup(message: types.Message):
     if team is not None:
         if team_name is '':
             await message.answer("Your team name is %s" % team.name)
+        elif team_name == 'clear':
+            team.name = ''
+            await message.answer("Team name cleared")
         else:
             team.name = team_name
             await message.answer("New team name is %s" % team.name)
@@ -190,6 +193,7 @@ async def print_help(message: types.Message):
     help.append("Command reference:")
     command_ref = ''
     command_ref += '/start *team_name* - create your team or change team name\n'
+    command_ref += '/start clear - clear team name\n'
     command_ref += '/list_tasks - view all tasks and their IDs\n'
     command_ref += '/stats - view global ranking\n'
     command_ref += '/stats_det - view global results by task\n'
