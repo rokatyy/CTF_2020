@@ -1,5 +1,2 @@
-1  - Rocket              - 300 
-2  -                     - 0   
-3  - empty               - 0   
-4  - *Anyway*            - 0   
+1  - Rocket            - 330.0
 

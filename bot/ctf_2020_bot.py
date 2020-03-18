@@ -43,6 +43,14 @@ def str_to_html(string):
     return "<pre>" + string + "</pre>"
 
 
+def result_print(n):
+    if n > 1:
+        return 'F'
+    if n == 1:
+        return 'S'
+    return 'n'
+
+
 @dp.message_handler(commands='start')
 async def startup(message: types.Message):
     team_id = message.from_user.id
@@ -74,7 +82,7 @@ async def team_results(message: types.Message):
     if team is not None:
         result_list = ''
         for i in range(len(tasks)):
-            result_line = "{:<2}- {:<15}\n".format(team.results[i], tasks[i]['name'])
+            result_line = "{:<2}- {:<15}\n".format(result_print(team.results[i]), tasks[i].name)
             result_list += result_line
         await message.answer(str_to_html(result_list), parse_mode='HTML')
     else:
@@ -85,7 +93,7 @@ async def team_results(message: types.Message):
 async def list_tasks(message: types.Message):
     task_list = ''
     for i in range(len(tasks)):
-        task_line = "{:<3}- {:<20}- {:<4}\n".format(i, tasks[i]['name'], tasks[i]['value'])
+        task_line = "{:<3}- {:<20}- {:<4}\n".format(i, tasks[i].name, tasks[i].value)
         task_list += task_line
     file = open('task_ids.txt', 'w')
     print(task_list, file=file)
@@ -101,7 +109,7 @@ async def all_results(message: types.Message):
         for team in teams:
             res = 0
             for i in range(len(tasks)):
-                res += tasks[i]['value'] * team.results[i]
+                res += tasks[i].value * team.results[i]
             stats.append({'name': team.name, 'result': res})
         stats = sorted(stats, key=lambda i: i['result'], reverse=True)
         results = ''
@@ -117,19 +125,25 @@ async def all_results(message: types.Message):
 
 @dp.message_handler(commands='stats_det')
 async def all_results_detailed(message: types.Message):
+    message_contents = message.text.split()
+    show_names = 0
+    if len(message_contents) == 2 and message_contents[1] == 'names':
+        show_names = 1
     if len(teams) is not 0:
         await message.answer("Format: 'team_name - task_result(by ID)'")
         results = ''
         for team in teams:
             result_line = "{:<18}- ".format(team.name)
             for result in team.results:
-                result_line += "{:<2}".format(result)
-            result_line += "{:}".format(team.owner_pretty)
+                result_line += "{:<2}".format(result_print(result))
+            if show_names:
+                result_line += f"{team.owner_pretty}"
             result_line += "\n"
             results += result_line
-        file = open('results_detailed.txt', 'w')
-        print(results, file=file)
-        file.close()
+        if show_names:
+            file = open('results_detailed.txt', 'w')
+            print(results, file=file)
+            file.close()
         await message.answer(str_to_html(results), parse_mode='HTML')
     else:
         await message.answer("No teams registered")
@@ -150,8 +164,12 @@ async def check_flag(message: types.Message):
                 await message.answer("Task ID out of range (hint: /list_tasks)")
                 return
             flag = hashlib.md5(message_contents[2].encode('utf-8')).hexdigest()
-            if flag == tasks[task_id]['answer']:
+            if flag == tasks[task_id].answer:
+                if tasks[task_id].first_solver == '':
+                    tasks[task_id].first_solver = team.owner
                 team.results[task_id] = 1
+                if team.owner == tasks[task_id].first_solver:
+                    team.results[task_id] += 0.1
                 await message.answer("Correct, well done")
                 await pickle_data(message)
             else:
@@ -175,6 +193,7 @@ async def print_help(message: types.Message):
     command_ref += '/check_flag *task_id* *flag* - check task solution\n'
     command_ref += '/help - print this message\n'
     help.append(command_ref)
+    help.append("Stats help: n - not solved, S - solved, F - solved first (1.1)")
     for line in help:
         await message.answer(line)
 

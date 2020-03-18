@@ -1,8 +1,18 @@
 import os
 import hashlib
 
-
 tasks = []
+
+
+class Task:
+    type: str = "task"
+
+    def __init__(self, name, group, answer, value):
+        self.name: str = name
+        self.group: str = group
+        self.answer: str = answer
+        self.value: int = value
+        self.first_solver: str = ''
 
 
 def populate_tasks():
@@ -37,8 +47,7 @@ def populate_tasks():
                 value_file = open(value_path, 'w')
                 print(value, file=value_file)
                 value_file.close()
-            tasks.append({'name': name, 'group': task_group, 'answer': ans_hash, 'value': value})
-
+            tasks.append(Task(name, task_group, ans_hash, value))
 
 
 if __name__ == '__main__':
