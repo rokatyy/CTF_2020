@@ -38,7 +38,7 @@
     Flag is md5(Kowloon)
 
 ### Stegano
-#### task1:
+#### LENIVETS
 
 [Lenivets](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/Lenivets)
 
@@ -73,6 +73,69 @@ Sup3r_eas4_FL4G111
     the flag is hidden in the audio. Extract the audio, analyze the spectrogram,
     get the F6L6A6G.
 
+#### RAW
+
+#### TRYOSHKA
+
+There are three parts of flag in the task.
+First part is hidden into `lol.jpg` metadata (comment):
+```~/develop/python/CTF_2020/Stegano/tryoshka @ mac(rokatyy): exiftool lol.jpg 
+ExifTool Version Number         : 11.70
+File Name                       : lol.jpg
+Directory                       : .
+File Size                       : 54 kB
+File Modification Date/Time     : 2020:03:17 16:18:21+03:00
+File Access Date/Time           : 2020:03:18 18:38:05+03:00
+File Inode Change Date/Time     : 2020:03:18 16:35:40+03:00
+File Permissions                : rw-r--r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : inches
+X Resolution                    : 72
+Y Resolution                    : 72
+Comment                         : ZmxhZ3tBX2wxdHRsM19CSVQK
+Image Width                     : 544
+Image Height                    : 483
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 544x483
+```
+Lets encode it from base64:
+```
+~/develop/python/CTF_2020/Stegano/tryoshka @ mac(rokatyy): echo 'ZmxhZ3tBX2wxdHRsM19CSVQK' | base64 --decode
+flag{A_l1ttl3_BIT
+```
+Okey so, we have first part.
+Now take a look into raw data (I recommend to use [010Editor](https://www.sweetscape.com/download/010editor/))
+We can see `PK` header after `jpg` data. It could be extracted manually or with `binwalk` utility:
+```
+~/develop/python/CTF_2020/Stegano/tryoshka @ mac(rokatyy): binwalk -e lol.jpg 
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             JPEG image data, JFIF standard 1.01
+55491         0xD8C3          Zip archive data, encrypted at least v1.0 to extract, compressed size: 24, uncompressed size: 12, name: second_part.txt
+55689         0xD989          End of Zip archive, footer length: 22
+
+```
+Here we see zip archive. It has password. We can try the first part of the flag, and it right!
+```
+~/develop/python/CTF_2020/Stegano/tryoshka/_lol.jpg.extracted @ mac(rokatyy): ls
+D8C3.zip
+~/develop/python/CTF_2020/Stegano/tryoshka/_lol.jpg.extracted @ mac(rokatyy): unzip D8C3.zip 
+Archive:  D8C3.zip
+[D8C3.zip] second_part.txt password: 
+ extracting: second_part.txt         
+~/develop/python/CTF_2020/Stegano/tryoshka/_lol.jpg.extracted @ mac(rokatyy): cat second_part.txt 
+_H4rD3r_BU7
+```
+So, we have the second part. And we can return to raw data view and see that in the end of all data third part of the flag:
+`_ST111_f7n}`
+And full flag: `flag{A_l1ttl3_BIT_H4rD3r_BU7_ST111_f7n}`
 
 ### CRYPTO
 #### blaise:
