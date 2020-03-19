@@ -71,8 +71,12 @@ Sup3r_eas4_FL4G111
     the flag is hidden in the audio. Extract the audio, analyze the spectrogram,
     get the F6L6A6G.
 
-#### RAW
+#### [RAW](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/raw)
 
+```
+It just raw data from .bmp image. We could look on it with GBS (https://github.com/old-games/GBS).
+Or just write header manually choosing the right width for image.
+```
 #### [TRYOSHKA](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/tryoshka)
 
 There are three parts of flag in the task.
@@ -131,7 +135,7 @@ Archive:  D8C3.zip
 ~/develop/python/CTF_2020/Stegano/tryoshka/_lol.jpg.extracted @ mac(rokatyy): cat second_part.txt 
 _H4rD3r_BU7
 ```
-So, we have the second part. And we can return to raw data view and see that in the end of all data third part of the flag:
+So, we have the second part. And we can return to raw data view and see that in the end of all data is third part of the flag:
 `_ST111_f7n}`
 
 And full flag: `flag{A_l1ttl3_BIT_H4rD3r_BU7_ST111_f7n}`
@@ -150,14 +154,11 @@ And full flag: `flag{A_l1ttl3_BIT_H4rD3r_BU7_ST111_f7n}`
     It's Cardan grille with holes in place '1'.
     
 ### Reverse
-#### task1:
-
-[Parseltang_magic](https://github.com/rokatyy/CTF_2020/tree/master/Reverse/Parseltang_magic)
+#### [Parseltang_magic](https://github.com/rokatyy/CTF_2020/tree/master/Reverse/Parseltang_magic)
 You need to reverse python application and find a flag.
 It's easy to find flag len(it was hardcoded) and then write method which revert changes firstly permutation and implementation then.
 
-#### task2:
-[checker](https://github.com/rokatyy/CTF_2020/tree/master/Reverse/checker)
+#### [CHECKER](https://github.com/rokatyy/CTF_2020/tree/master/Reverse/checker)
 
 You can find origin c++ code here: [code](https://github.com/rokatyy/CTF_2020/blob/master/Reverse/checker/easy_checker.cpp).
 There are some ways to solve:
