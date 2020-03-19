@@ -76,6 +76,7 @@ Sup3r_eas4_FL4G111
 #### RAW
 
 #### TRYOSHKA
+[Tryoshka](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/tryoshka)
 
 There are three parts of flag in the task.
 First part is hidden into `lol.jpg` metadata (comment):
