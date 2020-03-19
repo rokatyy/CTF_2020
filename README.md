@@ -37,8 +37,8 @@
     Hong Kong. "Hong Kong park many people" finds "Kowloon Walled City". 
     Flag is md5(Kowloon)
 
-### Stegano
-#### [LENIVETS](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/Lenivets)
+### STEGANO
+#### [Lenivets](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/Lenivets)
 
 
   You have a file - lenivets.jpg which has zip archive in the end of raw data. It could be seen with any hex-editor or any       automated tools like binwalk, scalpel and etc.
@@ -66,18 +66,16 @@ Sup3r_eas4_FL4G111
 ```
 
 
-#### Satan:
+#### [Satan](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/Satan)
     The video is all about hiding images in spectrograms, and, as it happens,
     the flag is hidden in the audio. Extract the audio, analyze the spectrogram,
     get the F6L6A6G.
 
-#### [RAW](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/raw)
+#### [Raw](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/raw)
+    It just raw data from .bmp image. We could look on it with GBS(https://github.com/old-games/GBS).
+    Or just write header manually choosing the right width for image.
 
-```
-It just raw data from .bmp image. We could look on it with GBS (https://github.com/old-games/GBS).
-Or just write header manually choosing the right width for image.
-```
-#### [TRYOSHKA](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/tryoshka)
+#### [Tryoshka](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/tryoshka)
 
 There are three parts of flag in the task.
 First part is hidden into `lol.jpg` metadata (comment):
@@ -153,12 +151,12 @@ And full flag: `flag{A_l1ttl3_BIT_H4rD3r_BU7_ST111_f7n}`
 #### history:
     It's Cardan grille with holes in place '1'.
     
-### Reverse
+### REVERSE
 #### [Parseltang_magic](https://github.com/rokatyy/CTF_2020/tree/master/Reverse/Parseltang_magic)
 You need to reverse python application and find a flag.
 It's easy to find flag len(it was hardcoded) and then write method which revert changes firstly permutation and implementation then.
 
-#### [CHECKER](https://github.com/rokatyy/CTF_2020/tree/master/Reverse/checker)
+#### [Checker](https://github.com/rokatyy/CTF_2020/tree/master/Reverse/checker)
 
 You can find origin c++ code here: [code](https://github.com/rokatyy/CTF_2020/blob/master/Reverse/checker/easy_checker.cpp).
 There are some ways to solve:
