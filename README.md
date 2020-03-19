@@ -104,7 +104,7 @@ Color Components                : 3
 Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
 Image Size                      : 544x483
 ```
-Lets encode it from base64:
+Lets decode it from base64:
 ```
 ~/develop/python/CTF_2020/Stegano/tryoshka @ mac(rokatyy): echo 'ZmxhZ3tBX2wxdHRsM19CSVQK' | base64 --decode
 flag{A_l1ttl3_BIT
