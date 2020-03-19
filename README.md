@@ -173,3 +173,18 @@ Nooooope.
   
   The most interesting string for us here is ```lfgar{g1thP_54}5```
   After some manipulations we can see that ```[2*i]``` elements placed to ```[2*i+1]``` and vice versa.
+  
+  #### [Crackme](https://github.com/rokatyy/CTF_2020/tree/master/Reverse/crackme)
+  Try to run it with ltrace and input any data, then see that `strcmp` is waiting for flag `flag{e4sy_C_language}`
+  ```
+  rokatyy@rokatyy-VirtualBox:~$ ltrace ./crackme.elf 
+printf("Input password: ")                                                                                                = 16
+__isoc99_scanf(0x563e94f248d5, 0x7ffc5e9c8090, 0, 0Input password: ss
+)                                                                      = 1
+strcmp("ss", "flag{e4sy_C_language}")                                                                                     = 13
+puts("Ne polushilos, ne fortanulo"Ne polushilos, ne fortanulo
+)                                                                                       = 28
++++ exited (status 0) +++
+```
+
+  
