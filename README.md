@@ -38,9 +38,7 @@
     Flag is md5(Kowloon)
 
 ### Stegano
-#### LENIVETS
-
-[Lenivets](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/Lenivets)
+#### [LENIVETS](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/Lenivets)
 
 
   You have a file - lenivets.jpg which has zip archive in the end of raw data. It could be seen with any hex-editor or any       automated tools like binwalk, scalpel and etc.
@@ -75,8 +73,7 @@ Sup3r_eas4_FL4G111
 
 #### RAW
 
-#### TRYOSHKA
-[Tryoshka](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/tryoshka)
+#### [TRYOSHKA](https://github.com/rokatyy/CTF_2020/tree/master/Stegano/tryoshka)
 
 There are three parts of flag in the task.
 First part is hidden into `lol.jpg` metadata (comment):
